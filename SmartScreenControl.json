@@ -1,0 +1,19 @@
+{
+  "start-overlay": [
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\": {\"callsign\":\"SmartScreenApp\", \"type\":\"application\",\"visible\":false, \"uri\":\"http://127.0.0.1:50050/alexa-smart-screen/\"}}",
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"SmartScreenApp\" }}"
+],
+  "show-overlay": [
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"SmartScreenApp\" }}",
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.setOpacity\", \"params\":{ \"client\": \"SmartScreenApp\", \"opacity\": 97}}",
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.setVisibility\", \"params\":{ \"client\": \"SmartScreenApp\", \"visible\": true}}"
+],
+  "dimm-overlay": [
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"SmartScreenApp\" }}",
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.setOpacity\", \"params\":{ \"client\": \"SmartScreenApp\", \"opacity\": 80}}",
+  "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.setVisibility\", \"params\":{ \"client\": \"SmartScreenApp\", \"visible\": true}}"
+],
+ "hide-overlay": [
+ "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.setVisibility\", \"params\":{ \"client\": \"SmartScreenApp\", \"visible\": false}}"
+]
+}

@@ -1,0 +1,10 @@
+{
+  "vsk_config" : {
+    "sqs" : {
+      "queue_url": "xxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "access_key": "xxxxxxxxxxxx",
+    "secret_key": "xxxxxxxxxxxx"
+  }
+}
+

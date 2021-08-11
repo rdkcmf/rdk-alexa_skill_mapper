@@ -1,0 +1,115 @@
+{
+   "attributes": [
+    "Move Up",
+    "Move Down",
+    "Move Left",
+    "Move Right",
+    "Enter Press",
+    "Exit Press",
+    "Launch XUMO",
+    "Launch YouTube",
+    "Close YouTube",
+    "Main UI",
+    "Radioline",
+    "BaebleMusic",
+    "GuessThatCity",
+    "SugarBoost",
+    "TrueOrFalse",
+    "WeatherNetwork",
+    "AccuWeather",
+    "FranceTwentyFour",
+    "EuroNews",
+    "CNNNews",
+    "Aljazeera",
+    "WallStreetJournal",
+    "Vimeo",
+    "skill mode enable",
+    "skill mode disable",
+    "volume up",
+    "volume down",
+    "mute",
+    "unmute",
+    "Bluetooth Settings",
+    "Internet Settings"
+   ],
+   "Move Left": 
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 37,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Move Up":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 38,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Move Right":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 39,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Move Down":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 40,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Enter Press":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 13,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Exit Press":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 8,\"modifiers\": [],\"delay\":0.0}]}}"],
+   "Launch XUMO":
+   [
+     "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\": {\"callsign\":\"HtmlApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://x1box-app.xumo.com/3.0.70/index.html\"}}"
+   ],
+   "Launch YouTube": 
+   [
+     "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\":{\"callsign\": \"Cobalt\", \"type\":\"\", \"uri\":\"\"}}"
+   ],
+   "Close YouTube":
+   [
+     "{\"jsonrpc\": \"2.0\", \"id\": 1234567890, \"method\": \"Controller.1.deactivate\", \"params\": {\"callsign\": \"Cobalt\"}}",
+     "{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\": {\"callsign\":\"ResidentApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"http://127.0.0.1:50050/lxresui/index.html?data=#home\"}}",
+     "{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"ResidentApp\" }}"
+   ],
+   "Main UI":
+   [
+   "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\":\"org.rdk.RDKShell.1.generateKey\", \"params\":{\"keys\":[ {\"keyCode\": 49,\"modifiers\": [],\"delay\":0.0}]}}",
+   "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\":\"org.rdk.RDKShell.1.suspend\", \"params\":{\"callsign\": \"Cobalt\"}}",
+   "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\":\"org.rdk.RDKShell.1.suspend\", \"params\":{\"callsign\": \"LightningApp\"}}",
+   "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\":\"org.rdk.RDKShell.1.suspend\", \"params\":{\"callsign\": \"HtmlApp\"}}"
+   ],
+   "Radioline":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.Radioline\"}}"],
+   "BaebleMusic":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.BaebleMusic\"}}"],
+   "GuessThatCity":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.GuessThatCity\"}}"],
+   "SugarBoost":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.SugarBoost\"}}"],
+   "TrueOrFalse":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.TrueOrFalse\"}}"],
+   "WeatherNetwork":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.WeatherNetwork\"}}"],
+   "AccuWeather":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.AccuWeather\"}}"],
+   "FranceTwentyFour":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.FranceTwentyFour\"}}"],
+   "EuroNews":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.EuroNews\"}}"],
+   "CNNNews":
+    [
+    "{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.CNN\"}}",
+    "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"SmartScreenApp\" }}"
+    ],
+   "Aljazeera":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.Aljazeera\"}}"],
+   "WallStreetJournal":
+    [
+    "{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.WallStreetJournal\"}}",
+    "{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.moveToFront\", \"params\":{ \"client\": \"LightningApp\" }}"
+    ],
+   "Vimeo":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\": \"org.rdk.RDKShell.1.launch\",\"params\": {\"callsign\":\"LightningApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"https://widgets.metrological.com/lightning/rdk/d431ce8577be56e82630650bf701c57d#app:com.metrological.app.VimeoRelease\"}}"],
+   "skill mode enable":["ENABLE"],
+   "skill mode disable":["DISABLE"],
+   "volume up":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.DisplaySettings.1.setVolumeLevel\", \"params\":{\"volumeLevel\":\"100\"}}"],
+   "volume down":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3, \"method\":\"org.rdk.DisplaySettings.1.setVolumeLevel\", \"params\":{\"volumeLevel\":\"50\"}}"],
+   "mute":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\":\"org.rdk.DisplaySettings.1.setMuted\",\"params\": {\"muted\":true}}"],
+   "unmute":
+    ["{\"jsonrpc\": \"2.0\",\"id\": 3,\"method\":\"org.rdk.DisplaySettings.1.setMuted\",\"params\": {\"muted\":false}}"],
+    "Bluetooth Settings":
+     ["{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\": {\"callsign\":\"ResidentApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"http://127.0.0.1:50050/lxresui/index.html?data=#settings/BluetoothScreen\"}}"],
+    "Internet Settings":
+     ["{\"jsonrpc\":\"2.0\", \"id\":3, \"method\":\"org.rdk.RDKShell.1.launch\", \"params\": {\"callsign\":\"ResidentApp\", \"type\":\"application\", \"visible\":true, \"uri\":\"http://127.0.0.1:50050/lxresui/index.html?data=#settings/WiFiScreen\"}}"]
+}
+
