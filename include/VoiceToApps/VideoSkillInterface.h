@@ -25,5 +25,6 @@ using namespace std;
 void* vidSkillThreadFun(void *vargp);
 int handleReceiveSQSMessage(void);
 int processJsonBuffer(const std::string & buffer);
+void set_vsk_msg_handler(void (*vsk_msg_handler)(const char*, unsigned long));
 
 #endif  //VOICETOAPPS_INCLUDE_VOICETOAPPS_VIDEOSKILLINTERFACE_H_

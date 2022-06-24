@@ -216,6 +216,9 @@ int voiceToApps::controlSmartScreenOverlay(VoiceSDKState state,  bool audioState
        else if(state == VoiceSDKState::VTA_IDLE && ! audioStatePlaying) {
 	  oState = OverlayState::HIDE;
        }
+       else if(state == VoiceSDKState::VTA_SPEAKING) {
+          oState = OverlayState::SHOW;
+       }
        else {
           oState = OverlayState::DIMMED;
        }

@@ -29,6 +29,10 @@
 #include "VoiceToApps/VoiceToApps.h"
 #define SKILLMAPPER_DEBUG 1
 
+#ifdef XR_SPEECH_AVS_SUPPORT
+void (*avs_vsk_msg_handler)(const char*, unsigned long);
+#endif
+
 //Enumerated types to represent different video skill API directives
 enum eVSKDirectives {
     INVALID_DIRECTIVE_NAME,
@@ -442,6 +446,13 @@ int processJsonBuffer(const std::string & buffer)
 {
     rapidjson::Document doc;
 
+#ifdef XR_SPEECH_AVS_SUPPORT	
+	if(avs_vsk_msg_handler !=NULL)
+	{
+		(*avs_vsk_msg_handler)(buffer.c_str(), (unsigned long)buffer.length());
+	}
+#endif
+	
     if(parseJSONString(buffer, &doc)==true) {
         handleVSKDirective(doc);
         return 0;
@@ -449,3 +460,12 @@ int processJsonBuffer(const std::string & buffer)
     return -1;
 }
 
+void set_vsk_msg_handler(void (*vsk_msg_handler)(const char*, unsigned long))
+{
+#ifdef XR_SPEECH_AVS_SUPPORT
+	if((vsk_msg_handler != NULL)&&(avs_vsk_msg_handler == NULL))
+	{
+		avs_vsk_msg_handler = vsk_msg_handler;
+	}
+#endif
+}
