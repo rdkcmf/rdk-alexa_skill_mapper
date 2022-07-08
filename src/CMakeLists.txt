@@ -15,10 +15,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if (FILEAUDIO)
 find_package(WPEFramework)
-find_package(${NAMESPACE}Plugins REQUIRED)
 find_package(${NAMESPACE}Definitions REQUIRED)
+find_package(${NAMESPACE}Plugins REQUIRED)
+
+if (FILEAUDIO)
 find_package(CompileSettingsDebug CONFIG REQUIRED)
 endif() 
 
@@ -41,13 +42,16 @@ target_include_directories(VoiceToApps PUBLIC
 if (FILEAUDIO)
 target_link_libraries(VoiceToApps
         CompileSettingsDebug::CompileSettingsDebug
-        ${NAMESPACE}Plugins::${NAMESPACE}Plugins
-        ${NAMESPACE}Definitions::${NAMESPACE}Definitions
         sndfile)
 endif()
 
+target_link_libraries(VoiceToApps ${NAMESPACE}Definitions::${NAMESPACE}Definitions ${NAMESPACE}Plugins::${NAMESPACE}Plugins)
 
 target_link_libraries(VoiceToApps AVSCommon pthread ${AWSSDK_LINK_LIBRARIES})
+
+if (JSONRPC_SECURITY_TOKEN)
+target_link_libraries(VoiceToApps WPEFrameworkSecurityUtil)
+endif()
 #target_link_libraries(VoiceToApps AVSCommon pthread)
 
 # install target

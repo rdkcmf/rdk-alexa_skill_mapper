@@ -45,6 +45,13 @@ int frameSkipCount;
 SNDFILE *sndFile = NULL;
 #endif //FILEAUDIO
 
+#ifdef JSONRPC_SECURITY_TOKEN
+	#define MAX_LENGTH 1024
+	string sToken;
+#endif
+
+WPEFramework::JSONRPC::Client* remoteObject = NULL;
+
 int voiceToApps::IO_ONE=0;
 int voiceToApps::IO_TWO=0;
 int voiceToApps::IO_THREE=0;
@@ -281,6 +288,56 @@ if (curl) {
    delete[] curlData;
 #endif
    return 0;
+}
+
+int voiceToApps::avsDirectiveToJsonRpcCmd(const string DirectiveType, const string& message)
+{
+
+	fprintf(stderr, "VoiceToApps Entering %s message=%s\n",__func__, message.c_str());
+	string query;
+    WPEFramework::Core::SystemInfo::SetEnvironment(_T("THUNDER_ACCESS"), (_T(SERVER_DETAILS)));
+	
+	#ifdef JSONRPC_SECURITY_TOKEN
+	if (sToken.empty())
+	{
+		unsigned char buffer[MAX_LENGTH] = {0};
+		int ret = GetSecurityToken(MAX_LENGTH,buffer);
+		if(ret > 0)
+		{
+		    sToken = (char*)buffer;
+			query = "token=" + sToken;
+		}
+
+	}
+	else
+	{
+		query = "token=" + sToken;
+	}
+	#endif // JSONRPC_SECURITY_TOKEN
+	
+	if(remoteObject == NULL)
+	{
+		#ifdef JSONRPC_SECURITY_TOKEN
+			remoteObject = new WPEFramework::JSONRPC::Client(_T(SYSSRV_CALLSIGN), _T(""), false, query);
+		#else
+			remoteObject = new WPEFramework::JSONRPC::Client(_T(SYSSRV_CALLSIGN), _T(""), false, _T(""));
+		#endif
+	}
+	
+	if(DirectiveType.compare("SendKeystroke") == 0) 
+	{
+		JsonObject params;
+		JsonArray ModifiersArray;
+		JsonObject result;
+		//query = "token=" + sToken;
+		params["keyCode"] = stoi(message);
+		params["modifiers"] = ModifiersArray;
+		if(remoteObject != NULL){
+		   remoteObject->Invoke<JsonObject, JsonObject>(1000,_T("injectKey"), params, result);	
+		}
+	}
+
+	return 0;
 }
 
 int voiceToApps::avsDirectiveToThunderCmd(const string& message, int iArg)

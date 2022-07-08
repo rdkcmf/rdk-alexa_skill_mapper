@@ -84,19 +84,19 @@ bool mapRdkToVsk(std::string vskDirective, std::string *rdkDirective)
       { "YouTube"   , "Launch YouTube"   },
       { "Close YouTube" , "Close YouTube" },
       { "Vimeo"     , "Vimeo"            },
-      { "UP"   , "Move Up"          },
-      { "PAGE_UP"   , "Move Up"          },
-      { "DOWN" , "Move Down"        },
-      { "PAGE_DOWN" , "Move Down"        },
-      { "LEFT" , "Move Left"        },
-      { "PAGE_LEFT" , "Move Left"        },
-      { "RIGHT", "Move Right" },
-      { "PAGE_RIGHT", "Move Right" },
-      { "Play"      , "Enter Press" },
-      { "SELECT"      , "Enter Press" },
-      { "Pause"      , "Enter Press" },
-      { "Stop"      , "Exit Press" },
-      { "Back"      , "Exit Press" },
+      { "UP"   , std::to_string(RDKSHELL_KEY_UP) },
+      { "PAGE_UP"   , std::to_string(RDKSHELL_KEY_PAGEUP) },
+      { "DOWN" , std::to_string(RDKSHELL_KEY_DOWN) },
+      { "PAGE_DOWN" , std::to_string(RDKSHELL_KEY_PAGEDOWN) },
+      { "LEFT" , std::to_string(RDKSHELL_KEY_LEFT) },
+      { "PAGE_LEFT" , std::to_string(RDKSHELL_KEY_LEFT) },
+      { "RIGHT", std::to_string(RDKSHELL_KEY_RIGHT) },
+      { "PAGE_RIGHT", std::to_string(RDKSHELL_KEY_RIGHT) },
+      { "Play"      , std::to_string(RDKSHELL_KEY_PLAY) },
+      { "SELECT"      , std::to_string(RDKSHELL_KEY_ENTER) },
+      { "Pause"      , std::to_string(RDKSHELL_KEY_PAUSE) },
+      { "Stop"      , std::to_string(RDKSHELL_KEY_BACKSPACE) },
+      { "BACK"      , std::to_string(RDKSHELL_KEY_BACKSPACE) },
       { "Google Search" , "Google Search" },
       { "Google Close"  , "Google Close" },
       { "Home"          , "Main UI" },
@@ -188,7 +188,8 @@ static void handlePlaybackController(std::string cmdName, std::string &payload)
        return;
     }
     skillmapper::voiceToApps rdkSkillmapper;
-    rdkSkillmapper.avsDirectiveToThunderCmd(rdkCmd);
+    //rdkSkillmapper.avsDirectiveToThunderCmd(rdkCmd);
+	rdkSkillmapper.avsDirectiveToJsonRpcCmd("SendKeystroke",rdkCmd);
    
     std::cout << __func__ << " INFO: Playback Key=" << cmdName.c_str() << "rdkCmd=" << rdkCmd.c_str() << std::endl;
     return;
@@ -318,7 +319,8 @@ static void handleKeypadController(std::string cmdName, std::string &payload)
         mapRdkToVsk(keyStroke, &rdkCmd);
         std::cout << __func__ <<": cmd=" << cmdName.c_str() << " key=" << keyStroke.c_str() << " rdkCmd=" << rdkCmd.c_str() << std::endl;
         skillmapper::voiceToApps rdkSkillmapper;
-        rdkSkillmapper.avsDirectiveToThunderCmd(rdkCmd);
+        //rdkSkillmapper.avsDirectiveToThunderCmd(rdkCmd);
+		rdkSkillmapper.avsDirectiveToJsonRpcCmd(cmdName,rdkCmd);
     }
     return;
 }

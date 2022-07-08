@@ -20,17 +20,26 @@
 #ifndef ALEXA_CLIENT_SDK_VOICETOAPPS_INCLUDE_VOICETOAPPS_VOICETOAPPS_H_
 #define ALEXA_CLIENT_SDK_VOICETOAPPS_INCLUDE_VOICETOAPPS_VOICETOAPPS_H_
 
+#ifndef MODULE_NAME
+#define MODULE_NAME Core
+#endif
+
 #include <string.h>
 #include <pthread.h>
 #include <rapidjson/document.h>
 #include "rapidjson/filereadstream.h"
 #include <curl/curl.h>
+#include <core/core.h>
+#include <websocket/websocket.h>
+#include <rdkshell/linuxkeys.h>
+
+#ifdef JSONRPC_SECURITY_TOKEN
+#include <securityagent/SecurityTokenUtil.h>
+#endif
 
 #ifdef FILEAUDIO
 #include <sndfile.h>
-#include <core/core.h>
 #include <tracing/tracing.h>
-#include <websocket/websocket.h>
 #include <interfaces/json/JsonData_BluetoothRemoteControl.h>
 #endif
 
@@ -99,6 +108,7 @@ int controlSmartScreenOverlay(VoiceSDKState state, bool audioStatePlaying);
 
 int curlCmdSendOnRcvMsg(const string& message);
 int avsDirectiveToThunderCmd(const string& message, int = 0);
+int avsDirectiveToJsonRpcCmd(const string DirectiveType, const string& message);
 #ifdef FILEAUDIO
 bool mergeWavFile(const char* file1, const char*file2);
 void BluetoothRemoteRPCComInit();

@@ -22,6 +22,24 @@ set(SKILLMAPPER_SMARTSCREEN_SUPPORT ON CACHE BOOL "Enable the Smart screen contr
 set(SKILLMAPPER_FRONTPANEL_SUPPORT  ON CACHE BOOL "Enable the FrontPanel notification in skillmapper")
 set(SKILLMAPPER_WITH_RDKSERVICE     ON CACHE BOOL "Use RDK Service plugins for skill execution")
 set(SKILLMAPPER_XR_SPEECH_AVS_SUPPORT OFF CACHE BOOL "Enable the xr-speech-avs support")
+set(SKILLMAPPER_SERVER_CALLSIGN "org.rdk.RDKShell.1" CACHE STRING "Server Callsign")
+set(SKILLMAPPER_SERVER_ADDRESS "127.0.0.1:9998" CACHE STRING "Server IP Address")
+
+if (SKILLMAPPER_SERVER_CALLSIGN)
+    set(VALID TRUE)
+    add_definitions(-DSYSSRV_CALLSIGN="${SKILLMAPPER_SERVER_CALLSIGN}")
+endif()
+
+if (SKILLMAPPER_SERVER_ADDRESS)
+    set(VALID TRUE)
+    add_definitions(-DSERVER_DETAILS="${SKILLMAPPER_SERVER_ADDRESS}")
+endif()
+
+if (JSONRPC_SECURITY_TOKEN)
+    set(VALID TRUE)
+    add_definitions("-DJSONRPC_SECURITY_TOKEN")
+endif()
+
 if (FILEAUDIO)
     set(VALID TRUE)
     add_definitions("-DFILEAUDIO")
