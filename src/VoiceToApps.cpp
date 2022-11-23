@@ -112,8 +112,7 @@ std::string VoiceSDKStateToStr(VoiceSDKState& state)
 
 std::string voiceToApps::overlayStateToStr(OverlayState state){
 	std::string retStr;
-	if      ( state ==  OverlayState::INIT) retStr = "start-overlay";
-	else if (state == OverlayState::SHOW)   retStr = "show-overlay";
+	if (state == OverlayState::SHOW)   retStr = "show-overlay";
 	else if (state == OverlayState::DIMMED) retStr = "dimm-overlay";
 	else if ( state == OverlayState::HIDE)  retStr = "hide-overlay";
 	return retStr;
@@ -216,11 +215,9 @@ int voiceToApps::controlSmartScreenOverlay(VoiceSDKState state,  bool audioState
 {
 	
 #ifdef SMARTSCREEN_SUPPORT
-		OverlayState oState;
-       if(state == VoiceSDKState::VTA_INIT) {
-          oState = OverlayState::INIT;
-       }
-       else if(state == VoiceSDKState::VTA_IDLE && ! audioStatePlaying) {
+       OverlayState oState;
+
+       if(state == VoiceSDKState::VTA_IDLE && ! audioStatePlaying) {
 	  oState = OverlayState::HIDE;
        }
        else if(state == VoiceSDKState::VTA_SPEAKING) {
