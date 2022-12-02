@@ -95,6 +95,8 @@ bool mapRdkToVsk(std::string vskDirective, std::string *rdkDirective)
       { "Play"      , std::to_string(RDKSHELL_KEY_PLAY) },
       { "SELECT"      , std::to_string(RDKSHELL_KEY_ENTER) },
       { "Pause"      , std::to_string(RDKSHELL_KEY_PAUSE) },
+      { "FastForward"      , std::to_string(RDKSHELL_KEY_FASTFORWARD) },
+      { "Rewind"      , std::to_string(RDKSHELL_KEY_REWIND) },
       { "Stop"      , std::to_string(RDKSHELL_KEY_BACKSPACE) },
       { "BACK"      , std::to_string(RDKSHELL_KEY_BACKSPACE) },
       { "Google Search" , "Google Search" },
